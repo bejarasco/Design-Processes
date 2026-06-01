@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sidewalk Almanac</title>
+    <meta
+      name="description"
+      content="A compact urban walking guide with route cards, field notes, and a pocket checklist."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f5efe2;
+        --ink: #1e2521;
+        --muted: #6f665a;
+        --line: #2d332e;
+        --moss: #68774d;
+        --clay: #b65e3c;
+        --cobalt: #2f5f8f;
+        --cream: #fff9eb;
+        --shadow: 0 24px 60px rgba(30, 37, 33, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 12% 16%, rgba(182, 94, 60, 0.2), transparent 29rem),
+          linear-gradient(135deg, rgba(47, 95, 143, 0.12), transparent 42%),
+          var(--paper);
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      body::before {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        content: "";
+        opacity: 0.28;
+        background-image:
+          linear-gradient(rgba(30, 37, 33, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(30, 37, 33, 0.045) 1px, transparent 1px);
+        background-size: 42px 42px;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .page {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 46px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding-bottom: 22px;
+        border-bottom: 2px solid rgba(30, 37, 33, 0.78);
+      }
+
+      .brand {
+        display: grid;
+        gap: 2px;
+      }
+
+      .brand strong {
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .brand span,
+      .issue {
+        color: var(--muted);
+        font-family: "Trebuchet MS", Verdana, sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .issue {
+        padding: 10px 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 249, 235, 0.72);
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+        gap: clamp(22px, 4vw, 54px);
+        align-items: start;
+        padding-top: 34px;
+      }
+
+      .hero h1 {
+        max-width: 780px;
+        margin: 0;
+        font-size: clamp(4rem, 11vw, 9.2rem);
+        line-height: 0.84;
+        letter-spacing: 0;
+      }
+
+      .hero h1 span {
+        display: block;
+        color: var(--clay);
+        font-style: italic;
+      }
+
+      .deck {
+        display: grid;
+        grid-template-columns: 1fr 160px;
+        gap: 24px;
+        max-width: 680px;
+        margin: 28px 0 36px;
+      }
+
+      .deck p {
+        margin: 0;
+        color: #3f443f;
+        font-size: clamp(1.1rem, 2vw, 1.35rem);
+        line-height: 1.45;
+      }
+
+      .stamp {
+        min-height: 150px;
+        display: grid;
+        place-items: center;
+        border: 2px solid var(--line);
+        border-radius: 50%;
+        color: var(--cobalt);
+        font-family: "Trebuchet MS", Verdana, sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-align: center;
+        text-transform: uppercase;
+        transform: rotate(8deg);
+      }
+
+      .routes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .route {
+        min-height: 182px;
+        padding: 16px;
+        border: 2px solid var(--line);
+        background: var(--cream);
+        text-align: left;
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+
+      .route:hover,
+      .route:focus-visible,
+      .route.active {
+        outline: none;
+        transform: translateY(-6px) rotate(-1deg);
+        box-shadow: var(--shadow);
+        background: #fff3d2;
+      }
+
+      .route:nth-child(2):hover,
+      .route:nth-child(2):focus-visible,
+      .route:nth-child(2).active {
+        transform: translateY(-6px) rotate(1.2deg);
+      }
+
+      .route small {
+        color: var(--clay);
+        font-family: "Trebuchet MS", Verdana, sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .route strong {
+        display: block;
+        margin: 22px 0 10px;
+        font-size: 1.45rem;
+        line-height: 1;
+      }
+
+      .route span {
+        display: block;
+        color: var(--muted);
+        line-height: 1.35;
+      }
+
+      .panel {
+        position: sticky;
+        top: 22px;
+        overflow: hidden;
+        border: 2px solid var(--line);
+        background: rgba(255, 249, 235, 0.88);
+        box-shadow: var(--shadow);
+      }
+
+      .map {
+        position: relative;
+        min-height: 330px;
+        background:
+          linear-gradient(32deg, transparent 47%, rgba(30, 37, 33, 0.28) 48%, transparent 50%),
+          linear-gradient(118deg, transparent 54%, rgba(30, 37, 33, 0.2) 55%, transparent 57%),
+          #dcd8bf;
+      }
+
+      .path {
+        position: absolute;
+        inset: 42px 34px;
+        border: 3px solid var(--cobalt);
+        border-left-color: transparent;
+        border-bottom-color: var(--clay);
+        transform: skew(-8deg) rotate(-7deg);
+      }
+
+      .pin {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border: 3px solid var(--ink);
+        border-radius: 50%;
+        background: var(--clay);
+      }
+
+      .pin.one {
+        left: 18%;
+        top: 65%;
+      }
+
+      .pin.two {
+        left: 54%;
+        top: 30%;
+      }
+
+      .pin.three {
+        left: 75%;
+        top: 58%;
+      }
+
+      .note {
+        padding: 22px;
+        border-top: 2px solid var(--line);
+      }
+
+      .note h2 {
+        margin: 0 0 12px;
+        font-size: 2rem;
+      }
+
+      .note p {
+        margin: 0 0 18px;
+        color: #424941;
+        line-height: 1.5;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .meta div {
+        padding: 12px;
+        background: var(--cream);
+      }
+
+      .meta span {
+        display: block;
+        color: var(--muted);
+        font-family: "Trebuchet MS", Verdana, sans-serif;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .meta strong {
+        display: block;
+        margin-top: 5px;
+        font-size: 1.1rem;
+      }
+
+      .checklist {
+        margin-top: 18px;
+        padding: 22px;
+        border: 2px solid var(--line);
+        background: rgba(104, 119, 77, 0.13);
+      }
+
+      .checklist h2 {
+        margin: 0 0 14px;
+        font-size: 1.6rem;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 42px;
+        border-top: 1px solid rgba(30, 37, 33, 0.22);
+        color: #3c433d;
+      }
+
+      input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--moss);
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 42px;
+        padding-top: 18px;
+        border-top: 2px solid var(--line);
+        color: var(--muted);
+        font-family: "Trebuchet MS", Verdana, sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 860px) {
+        main,
+        .deck {
+          grid-template-columns: 1fr;
+        }
+
+        .stamp {
+          width: 140px;
+          min-height: 140px;
+        }
+
+        .panel {
+          position: static;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .page {
+          width: min(100% - 22px, 1180px);
+          padding-top: 18px;
+        }
+
+        header,
+        footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .routes,
+        .meta {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: clamp(3.2rem, 18vw, 5.8rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="brand">
+          <strong>Sidewalk Almanac</strong>
+          <span>Small expeditions for restless afternoons</span>
+        </div>
+        <div class="issue">Field Issue 07</div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="title">
+          <h1 id="title">Walk the <span>nearby</span></h1>
+          <div class="deck">
+            <p>
+              Pick a route, pocket a few prompts, and let ordinary blocks turn into
+              a short expedition. Built for lunch breaks, foggy mornings, and the
+              hour before dinner.
+            </p>
+            <div class="stamp">No car<br />No booking<br />No rush</div>
+          </div>
+
+          <div class="routes" aria-label="Route options">
+            <button class="route active" data-route="market">
+              <small>42 minutes</small>
+              <strong>Market Loop</strong>
+              <span>Produce stalls, old tile signs, and one quiet bakery window.</span>
+            </button>
+            <button class="route" data-route="rain">
+              <small>31 minutes</small>
+              <strong>Rain Drain</strong>
+              <span>Follow curbside watermarks and alleys with good echoes.</span>
+            </button>
+            <button class="route" data-route="ridge">
+              <small>57 minutes</small>
+              <strong>Ridge Errand</strong>
+              <span>Climb three blocks for rooflines, laundry, and a long view.</span>
+            </button>
+          </div>
+
+          <section class="checklist" aria-labelledby="check-title">
+            <h2 id="check-title">Pocket Checklist</h2>
+            <label><input type="checkbox" /> Notice one repaired thing.</label>
+            <label><input type="checkbox" /> Find a hand-painted letterform.</label>
+            <label><input type="checkbox" /> Pause where the street sound changes.</label>
+          </section>
+        </section>
+
+        <aside class="panel" aria-live="polite">
+          <div class="map" aria-hidden="true">
+            <div class="path"></div>
+            <span class="pin one"></span>
+            <span class="pin two"></span>
+            <span class="pin three"></span>
+          </div>
+          <div class="note">
+            <h2 id="route-title">Market Loop</h2>
+            <p id="route-copy">
+              Start at the loudest corner, then drift toward the smell of bread.
+              Turn back only after finding a sign older than the awning below it.
+            </p>
+            <div class="meta">
+              <div>
+                <span>Distance</span>
+                <strong id="distance">1.8 mi</strong>
+              </div>
+              <div>
+                <span>Best light</span>
+                <strong id="light">9:20 AM</strong>
+              </div>
+              <div>
+                <span>Mood</span>
+                <strong id="mood">Busy</strong>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <footer>
+        <span>Printed nowhere, updated whenever</span>
+        <span>Bring water and curiosity</span>
+      </footer>
+    </div>
+
+    <script>
+      const routes = {
+        market: {
+          title: "Market Loop",
+          copy:
+            "Start at the loudest corner, then drift toward the smell of bread. Turn back only after finding a sign older than the awning below it.",
+          distance: "1.8 mi",
+          light: "9:20 AM",
+          mood: "Busy"
+        },
+        rain: {
+          title: "Rain Drain",
+          copy:
+            "Trace the low ground after a shower. Look for bronze leaves in gutters, bright umbrellas, and the doorway with the cleanest reflection.",
+          distance: "1.2 mi",
+          light: "4:45 PM",
+          mood: "Glossy"
+        },
+        ridge: {
+          title: "Ridge Errand",
+          copy:
+            "Take the hill in short blocks. At the top, buy something small, face west, and count how many roof shapes interrupt the sky.",
+          distance: "2.4 mi",
+          light: "6:10 PM",
+          mood: "Wide"
+        }
+      };
+
+      const buttons = document.querySelectorAll(".route");
+      const title = document.querySelector("#route-title");
+      const copy = document.querySelector("#route-copy");
+      const distance = document.querySelector("#distance");
+      const light = document.querySelector("#light");
+      const mood = document.querySelector("#mood");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const route = routes[button.dataset.route];
+          buttons.forEach((item) => item.classList.remove("active"));
+          button.classList.add("active");
+          title.textContent = route.title;
+          copy.textContent = route.copy;
+          distance.textContent = route.distance;
+          light.textContent = route.light;
+          mood.textContent = route.mood;
+        });
+      });
+    </script>
+  </body>
+</html>
