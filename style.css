@@ -12,20 +12,110 @@ p {
 }
 
 header{
-  background-color: rgba(112, 49, 12, 0.877);
+  background-color: #b95d06;
   margin: 0;
   text-align: center;
 }
 
-nav button {
-  color:#000000;
-  background-color:rgb(255, 255, 255);
-  width: 140px;
+.logo {
+    width: 400px;
+    margin: 10px 0px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.nav-button {
+    display: inline-block;
+    color: #b95d06;             
+    background-color: #ffffff;
+    width: 140px;
+    padding: 10px 0;
+    text-decoration: none;      
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0px;         
+    box-shadow: 0 4px 0px #7a3d04; 
+    transition: all 0.2s ease;  
+}
+
+.nav-button:hover {
+    background-color: #fce303;  
+    color: #000000;             
+    transform: translateY(2px); 
+    box-shadow: 0 2px 0px #7a3d04;
 }
 
 body {
-  text-align: center;
-  background-color: #b95d06;
- 
+    text-align: center;
+    background-color: #b95d06;
+    margin: 0px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+#hero-image {
+    background-image: url(vector2.avif);
+    height: 450px; 
+    background-position: center;
+    background-size: cover;
+}
+#hero-image-two {
+    background-image: url(despicable-me-4-11.avif);
+    height: 450px; 
+    background-position: center;
+    background-size: cover;
+}
+
+#hero-image-three {
+    background-image: url(gruu.webp);
+    height: 450px; 
+    background-position: center;
+    background-size: cover;
+}
+
+#overlay {
+    padding-top: 180px;
+    font-style: italic;
+}
+#hero-image p {
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+#hero-image-two p {
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+#hero-image-three p {
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+h1 {
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    margin: 0px 0px;
+}
+
+header h1 {
+    width: 1900px;
+    margin: 10px 0px;
 }
 
