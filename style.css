@@ -1,3 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: #ffffff;
+    margin: 0px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+.nav-bar {
+  background-color: #111;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 15px 30px;
+}
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+.hero-banner {
+  background-image: url('Ohyeahart.jpg'); 
+  background-size: cover;
+  background-position: center;
+  height: 200px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-banner h1 {
+  color: white;
+  font-size: 3rem;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
 main {
   margin: 0 auto;
 }
@@ -12,7 +58,7 @@ p {
 }
 
 header{
-  background-color: #b95d06;
+  background-color: #000000;
   margin: 0;
   text-align: center;
 }
@@ -24,86 +70,16 @@ header{
 
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     gap: 20px;
-    padding-bottom: 20px;
-}
-
-.nav-button {
-    display: inline-block;
-    color: #b95d06;             
-    background-color: #ffffff;
-    width: 140px;
-    padding: 10px 0;
-    text-decoration: none;      
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 0px;         
-    box-shadow: 0 4px 0px #7a3d04; 
-    transition: all 0.2s ease;  
-}
-
-.nav-button:hover {
-    background-color: #fce303;  
-    color: #000000;             
-    transform: translateY(2px); 
-    box-shadow: 0 2px 0px #7a3d04;
-}
-
-body {
-    text-align: center;
-    background-color: #b95d06;
-    margin: 0px;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-#hero-image {
-    background-image: url(vector2.avif);
-    height: 450px; 
-    background-position: center;
-    background-size: cover;
-}
-#hero-image-two {
-    background-image: url(despicable-me-4-11.avif);
-    height: 450px; 
-    background-position: center;
-    background-size: cover;
-}
-
-#hero-image-three {
-    background-image: url(gruu.webp);
-    height: 450px; 
-    background-position: center;
-    background-size: cover;
+    padding-right: 50px;
 }
 
 #overlay {
     padding-top: 180px;
     font-style: italic;
 }
-#hero-image p {
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
-    word-spacing: 2px;
-    letter-spacing: 1px;
-    font-size: 18px;
-}
-#hero-image-two p {
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
-    word-spacing: 2px;
-    letter-spacing: 1px;
-    font-size: 18px;
-}
-#hero-image-three p {
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
-    word-spacing: 2px;
-    letter-spacing: 1px;
-    font-size: 18px;
-}
+
 
 h1 {
     color: #ffffff;
@@ -114,8 +90,14 @@ h1 {
     margin: 0px 0px;
 }
 
-header h1 {
-    width: 1900px;
-    margin: 10px 0px;
+.nav-button {
+    display: inline-block;
+    color: #ffffff;             
+    width: 140px;
+    padding: 10px 0;
+    text-decoration: none;      
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0px;         
 }
-
