@@ -10,55 +10,81 @@ body {
     margin: 0px;
     color: white;
 }
-.nav-bar {
-  background-color: #111;
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  padding: 15px 30px;
+
+.nav-bar{
+    background:#111;
+    height:60px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 25px;
 }
 
-.nav-button {
-    display: inline-block;
-    color: #ffffff;             
-    width: 140px;
-    padding: 10px 0;
-    text-decoration: none;      
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 0px;         
+.nav-button{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-.menu-icon span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 4px 0;
+.menu-icon{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
 }
 
-.hero-banner {
-  background-image: url('Ohyeahart.jpg'); 
-  background-size: cover;
-  background-position: center;
-  height: 200px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+.menu-icon span{
+    width:30px;
+    height:4px;
+    background:white;
 }
 
-.hero-banner a {
-  color: white;
-  font-size: 3rem;
-  font-family: 'Impact', 'Arial Black', sans-serif;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  text-decoration: none;
+.hero-banner{
+
+    background-image:url("Ohyeahart.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    height: 150px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
+
+.hero-banner a{
+
+    text-decoration:none;
+    color:white;
+    font-size:60px;
+    font-weight:bold;
+    text-shadow:3px 3px 6px black;
+}
+
 main {
   margin: 0 auto;
+}
+
+.welcome{
+
+    text-align:center;
+    padding:40px;
+
+}
+
+.welcome h1{
+
+    color:white;
+    font-size:60px;
+}
+
+.welcome p{
+
+    margin-top:10px;
+    font-weight:bold;
+
 }
 
 p {
@@ -99,3 +125,50 @@ h1 {
     margin: 0px 0px;
 }
 
+.info-boxes{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    width:90%;
+
+    margin:40px auto;
+}
+
+.box{
+
+    background:white;
+
+    color:black;
+
+    padding:25px;
+
+    min-height:220px;
+
+    text-align:left;
+}
+
+footer{
+
+    margin-top:60px;
+}
+
+.footer-image{
+
+    background-image:url("images/footer.jpg");
+    height:180px;
+    background-size:cover;
+    background-position:center;
+
+}
+
+.footer-content{
+    background:#111;
+    color:white;
+    display:flex;
+    justify-content:space-around;
+    paddinG:30px;
+}
