@@ -1,8 +1,30 @@
+/* ========================================
+   RESET / GLOBAL STYLES
+======================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 50px;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  margin: 0px 0px;
+}
+
+
+/* ========================================
+   BODY
+======================================== */
 
 body {
   text-align: center;
@@ -11,267 +33,274 @@ body {
   color: white;
 }
 
-.nav-bar{
-  display:flex;
-  align-items:center;
-  padding:0 25px;
-  background:#111;
-  height:60px;
-}
 
-.menu-icon{
-  background:none;
-  border:none;
-  cursor:pointer;
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-}
+/* ========================================
+   HEADER
+======================================== */
 
-.menu-icon span{
-  width:30px;
-  height:4px;
-  background:white;
-}
-
-.menu-container{
-  position:relative;
-}
-
-.side-menu{
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:300px;
-    height:100vh;
-
-    background:#ffffff;
-
-    padding:25px 30px;
-
-    border:1px solid #777;
-    border-radius:0 15px 15px 0;
-
-    box-shadow:5px 0 15px rgba(0,0,0,.3);
-
-    display:none;
-    flex-direction:column;
-
-    z-index:2000;
-
-    text-align:left;
-}
-
-.close-menu{
-
-    align-self:flex-start;
-
-    background:none;
-
-    border:none;
-
-    font-size:25px;
-
-    line-height:20px;
-
-    cursor:pointer;
-
-    color:#111;
-
-    padding:0;
-
-    margin-bottom:10px;
-
-}
-
-.side-menu h4{
-    font-family:Arial, sans-serif;
-    font-size:18px;
-
-    margin:20px 0 8px;
-
-    color:#111;
-}
-.side-menu a{
-    color:#222;
-    text-decoration:none;
-
-    font-family:Arial, sans-serif;
-    font-size:16px;
-
-    padding:7px 0;
-
-    display:block;
-}
-
-.side-menu a::before{
-    content:"•";
-    margin-right:10px;
-}
-
-.side-menu a:hover{
-
-    text-decoration:underline;
-
-}
-.side-menu a:hover{
-  background:#f2f2f2;
-
-}
-.nav-button:first-of-type{
-    margin-left:auto;
-}
-
-.nav-button{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    margin-left:30px;
-}
-
-
-.hero-banner{
-
-    background-image:url("Ohyeahart.jpg");
-
-    background-size:cover;
-    background-position:center;
-
-    height: 150px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.hero-banner a{
-
-    text-decoration:none;
-    color:white;
-    font-size:60px;
-    font-weight:bold;
-    text-shadow:3px 3px 6px black;
-}
-
-main {
-  margin: 0 auto;
-}
-
-.welcome{
-    background-image:url("art.png");
-    background-size:cover;
-    background-position:center;
-
-    height:500px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-    padding:40px;
-    margin-top: 50px;
-}
-
-.welcome h1{
-
-    color:white;
-    font-size:60px;
-}
-
-.welcome p{
-
-    margin-top:10px;
-    font-weight:bold;
-
-}
-
-p {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-header{
+header {
   background-color: #000000;
   margin: 0;
   text-align: center;
 }
 
-.logo {
-    width: 400px;
-    margin: 10px 0px;
+
+/* ========================================
+   NAVIGATION BAR
+======================================== */
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  background: #111;
+  height: 60px;
 }
 
-#overlay {
-    padding-top: 180px;
-    font-style: italic;
+.nav-button:first-of-type {
+  margin-left: auto;
+}
+
+.nav-button {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 30px;
 }
 
 
-h1 {
-    color: #ffffff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 50px;
-    word-spacing: 2px;
-    letter-spacing: 1px;
-    margin: 0px 0px;
+/* ========================================
+   HAMBURGER MENU
+======================================== */
+
+.menu-container {
+  position: relative;
 }
 
-.info-boxes{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-
-    width:50%;
-    margin:-150px auto 0;
-
-    position:relative;
-    z-index:2;
+.menu-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.box{
-    background:#f7f6f5;
-    color:#222;
-    padding:20px;
-    height:300px;
-    border:1px solid #222;
-    border-radius:0;
-    box-shadow:none;
-    text-align:left;
+.menu-icon span {
+  width: 30px;
+  height: 4px;
+  background: white;
 }
 
-.box h3{
-    font-size:16px;
-    margin-bottom:20px;
-    color:#222;
+
+/* ========================================
+   SIDE MENU
+======================================== */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background: #ffffff;
+  padding: 25px 30px;
+  border: 1px solid #777;
+  border-radius: 0 15px 15px 0;
+  box-shadow: 5px 0 15px rgba(0,0,0,.3);
+  display: none;
+  flex-direction: column;
+  z-index: 2000;
+  text-align: left;
 }
 
-.box p{
-    color:#444;
-    line-height:1.4;
-    font-style:italic;
-    font-size:14px;
+
+/* Close Button */
+
+.close-menu {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-size: 25px;
+  line-height: 20px;
+  cursor: pointer;
+  color: #111;
+  padding: 0;
+  margin-bottom: 10px;
 }
 
-footer{
 
-    margin-top:60px;
+/* Side Menu Headings */
+
+.side-menu h4 {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  margin: 20px 0 8px;
+  color: #111;
 }
 
-.footer-image{
 
-    background-image:url("images/footer.jpg");
-    height:180px;
-    background-size:cover;
-    background-position:center;
+/* Side Menu Links */
 
+.side-menu a {
+  color: #222;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 7px 0;
+  display: block;
 }
 
-.footer-content{
-    background:#111;
-    color:white;
-    display:flex;
-    justify-content:space-around;
-    paddinG:30px;
+
+/* Side Menu Bullets */
+
+.side-menu a::before {
+  content: "•";
+  margin-right: 10px;
+}
+
+
+/* Side Menu Hover */
+
+.side-menu a:hover {
+  text-decoration: underline;
+  background: #f2f2f2;
+}
+
+
+/* ========================================
+   HERO BANNER
+======================================== */
+
+.hero-banner {
+  background-image: url("Ohyeahart.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-banner a {
+  text-decoration: none;
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px black;
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+main {
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   WELCOME SECTION
+======================================== */
+
+.welcome {
+  background-image: url("art.png");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  margin-top: 50px;
+}
+
+.welcome h1 {
+  color: white;
+  font-size: 60px;
+}
+
+.welcome p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+/* ========================================
+   INFO BOXES
+======================================== */
+
+.info-boxes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 50%;
+  margin: -150px auto 0;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Individual Box */
+
+.box {
+  background: #f7f6f5;
+  color: #222;
+  padding: 20px;
+  height: 300px;
+  border: 1px solid #222;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+}
+
+
+/* Box Heading */
+
+.box h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+
+/* Box Paragraph */
+
+.box p {
+  color: #444;
+  line-height: 1.4;
+  font-style: italic;
+  font-size: 14px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+  margin-top: 60px;
+}
+
+
+/* Footer Image */
+
+.footer-image {
+  background-image: url("images/footer.jpg");
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* Footer Content */
+
+.footer-content {
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
 }
