@@ -12,26 +12,28 @@ body {
 }
 
 .nav-bar{
+    display:flex;
+    align-items:center;
+    padding:0 25px;
     background:#111;
     height:60px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 25px;
-}
-
-.nav-button{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
 }
 
 .menu-icon{
     display:flex;
     flex-direction:column;
     gap:5px;
+}
+
+.nav-button:first-of-type{
+    margin-left:auto;
+}
+
+.nav-button{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    margin-left:30px;
 }
 
 .menu-icon span{
@@ -68,10 +70,20 @@ main {
 }
 
 .welcome{
+    background-image:url("art.png");
+    background-size:cover;
+    background-position:center;
+
+    height:500px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 
     text-align:center;
     padding:40px;
-
+    margin-top: 50px;
 }
 
 .welcome h1{
@@ -88,7 +100,6 @@ main {
 }
 
 p {
-  color: #411206;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -101,13 +112,6 @@ header{
 .logo {
     width: 400px;
     margin: 10px 0px;
-}
-
-nav {
-    display: flex;
-    justify-content: right;
-    gap: 20px;
-    padding-right: 50px;
 }
 
 #overlay {
@@ -126,29 +130,44 @@ h1 {
 }
 
 .info-boxes{
-
     display:grid;
+    grid-template-columns:repeat(4, 1fr);
 
-    grid-template-columns:repeat(4,1fr);
+    width:50%;
+    margin:-150px auto 0;
 
-    gap:20px;
-
-    width:90%;
-
-    margin:40px auto;
+    position:relative;
+    z-index:2;
 }
 
 .box{
+    background:#f7f1e6;
+    color:#222;
 
-    background:white;
+    padding:20px;
 
-    color:black;
+    height:300px;
 
-    padding:25px;
+    border:1px solid #222;
 
-    min-height:220px;
+    border-radius:0;
+
+    box-shadow:none;
 
     text-align:left;
+}
+
+.box h3{
+    font-size:16px;
+    margin-bottom:20px;
+    color:#222;
+}
+
+.box p{
+    color:#444;
+    line-height:1.4;
+    font-style:italic;
+    font-size:14px;
 }
 
 footer{
