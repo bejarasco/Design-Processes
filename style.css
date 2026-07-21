@@ -5,26 +5,121 @@
 }
 
 body {
-    text-align: center;
-    background-color: #9f8860;
-    margin: 0px;
-    color: white;
+  text-align: center;
+  background-color: #fafafa;
+  margin: 0px;
+  color: white;
 }
 
 .nav-bar{
-    display:flex;
-    align-items:center;
-    padding:0 25px;
-    background:#111;
-    height:60px;
+  display:flex;
+  align-items:center;
+  padding:0 25px;
+  background:#111;
+  height:60px;
 }
 
 .menu-icon{
-    display:flex;
-    flex-direction:column;
-    gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
 }
 
+.menu-icon span{
+  width:30px;
+  height:4px;
+  background:white;
+}
+
+.menu-container{
+  position:relative;
+}
+
+.side-menu{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:300px;
+    height:100vh;
+
+    background:#ffffff;
+
+    padding:25px 30px;
+
+    border:1px solid #777;
+    border-radius:0 15px 15px 0;
+
+    box-shadow:5px 0 15px rgba(0,0,0,.3);
+
+    display:none;
+    flex-direction:column;
+
+    z-index:2000;
+
+    text-align:left;
+}
+
+.close-menu{
+
+    align-self:flex-start;
+
+    background:none;
+
+    border:none;
+
+    font-size:25px;
+
+    line-height:20px;
+
+    cursor:pointer;
+
+    color:#111;
+
+    padding:0;
+
+    margin-bottom:10px;
+
+}
+
+.side-menu h4{
+    font-family:Arial, sans-serif;
+    font-size:18px;
+
+    margin:20px 0 8px;
+
+    color:#111;
+}
+.side-menu a{
+    color:#222;
+    text-decoration:none;
+
+    font-family:Arial, sans-serif;
+    font-size:16px;
+
+    padding:7px 0;
+
+    display:block;
+}
+
+.side-menu a::before{
+    content:"•";
+    margin-right:10px;
+}
+
+.side-menu a:hover{
+
+    text-decoration:underline;
+
+}
+.side-menu a:hover{
+  background:#f2f2f2;
+
+}
 .nav-button:first-of-type{
     margin-left:auto;
 }
@@ -36,11 +131,6 @@ body {
     margin-left:30px;
 }
 
-.menu-icon span{
-    width:30px;
-    height:4px;
-    background:white;
-}
 
 .hero-banner{
 
@@ -141,19 +231,13 @@ h1 {
 }
 
 .box{
-    background:#f7f1e6;
+    background:#f7f6f5;
     color:#222;
-
     padding:20px;
-
     height:300px;
-
     border:1px solid #222;
-
     border-radius:0;
-
     box-shadow:none;
-
     text-align:left;
 }
 

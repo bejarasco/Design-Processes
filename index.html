@@ -8,10 +8,57 @@
     <body>
       <header class="site-header">
         <nav class="nav-bar">
-          <div class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
+          <div class="menu-container">
+
+           <button class="menu-icon" id="menuBtn">
+             <span></span>
+             <span></span>
+             <span></span>
+           </button>
+
+           <div class="side-menu" id="sideMenu">
+
+             <button class="close-menu" id="closeBtn">
+               ×
+             </button>
+
+             <h4>MAIN</h4>
+
+             <a href="index.html">Home 🏠</a>
+             <a href="#">Artists 🎨</a>
+             <a href="#">Artworks 🖼️</a>
+             <a href="#">Movements / Styles 🌈</a>
+             <a href="#">Timeline 📜</a>
+             <a href="#">Explore by Region 🌎</a>
+             <a href="#">Learn Art 🧑‍🎨</a>
+
+
+             <h4>BROWSE</h4>
+
+             <a href="#">Featured Artist ⭐</a>
+             <a href="#">Random Artwork 🎲</a>
+             <a href="#">Artist Quotes 🖌️</a>
+             <a href="#">Did You Know? 💡</a>
+
+
+             <h4>INFORMATION</h4>
+
+             <a href="#">About the Site ℹ️</a>
+             <a href="#">Contact / Feedback 💬</a>
+             <a href="#">Terms & Licensing 📜</a>
+             <a href="#">Credits 🎨</a>
+
+
+             <h4>SOCIAL LINKS</h4>
+
+             <a href="#">Instagram</a>
+             <a href="#">Pinterest</a>
+             <a href="#">YouTube</a>
+             <a href="#">X / Twitter</a>
+             <a href="#">Email</a>
+
+            </div>
+
           </div>
           <a href="Pagethree.html" class="nav-button">Sign Up</a>
           <a href="Pagetwo.html" class="nav-button">Log In</a>
@@ -95,5 +142,24 @@
         </div>
 
       </footer>
+    <script>
+
+      const menuBtn = document.getElementById("menuBtn");
+      const sideMenu = document.getElementById("sideMenu");
+      const closeBtn = document.getElementById("closeBtn");
+
+      menuBtn.addEventListener("click", () => {
+
+        sideMenu.style.display = "flex";
+
+      });
+
+      closeBtn.addEventListener("click", () => {
+
+        sideMenu.style.display = "none";
+
+      });
+
+      </script>
     </body>
 </html>
