@@ -149,6 +149,7 @@ header {
   font-size: 16px;
   padding: 7px 0;
   display: block;
+  transition: color 0.35s ease;
 }
 
 
@@ -165,6 +166,7 @@ header {
 .side-menu a:hover {
   text-decoration: underline;
   background: #f2f2f2;
+  color: #85815c;
 }
 
 
@@ -604,3 +606,4 @@ footer {
   text-decoration: underline;
   color: #111;
 }
+
