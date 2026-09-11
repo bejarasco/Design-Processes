@@ -381,18 +381,6 @@ footer {
   color: #555; 
 }
 
-
-/* ========================================
-   MOBILE RESPONSIVENESS
-======================================== */
-@media (max-width: 900px) {
-  .auth-section {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-    gap: 40px; 
-  }
-}
-
 .auth-container {
   background: #ffffff;
   border: 1px solid #ddd;
@@ -607,3 +595,112 @@ footer {
   color: #111;
 }
 
+/* ========================================
+   MOBILE RESPONSIVENESS
+======================================== */
+@media (max-width: 900px) {
+  
+  /* Auth Pages */
+  .auth-section {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 40px; 
+  }
+
+  /* Hero Banner & Welcome Text */
+  .hero-banner a {
+    font-size: 35px;
+  }
+  
+  .welcome h1 {
+    font-size: 40px;
+  }
+  
+  .welcome p {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+
+  /* Fix the squished Info Boxes */
+  .info-boxes {
+    display: flex; /* Forces flexbox layout */
+    flex-direction: column; /* Stacks the boxes top-to-bottom */
+    align-items: center;
+    width: 90%;
+    margin: -30px auto 50px; 
+    gap: 20px;
+  }
+
+  /* Ensure each individual box takes up the full width allowed */
+  .box {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Adjust the header navigation */
+  .nav-bar {
+    padding: 0 15px;
+  }
+  
+  .nav-button {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  /* Stack the footer links */
+  .footer-content {
+    display: flex;
+    flex-direction: column; /* Stacks the footer sections */
+    text-align: center;
+    gap: 30px;
+  }
+
+  /* Let the welcome section grow as tall as it needs to */
+  .welcome {
+    height: auto; 
+    min-height: 600px; /* Keeps it looking good if there isn't much text */
+    padding: 60px 20px 100px; /* Adds breathing room around the text */
+  }
+
+  /* Make sure the boxes strictly stack in one column */
+  .info-boxes {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column */
+    width: 90%;
+    margin: -50px auto 50px; 
+    gap: 20px;
+  } 
+
+  /* ========================================
+     FIX FOR FEATURED ARTISTS PAGE
+  ======================================== */
+  .artists-grid {
+    grid-template-columns: 1fr; /* Forces 1 single column */
+    padding: 20px;
+    gap: 20px;
+  }
+
+  /* ========================================
+     FIX FOR SIGN UP / LOG IN PAGES
+  ======================================== */
+  /* This overrides the 3-column layout to stack the text and form */
+  .auth-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  /* ========================================
+     FIX FOR ARTISTS DIRECTORY
+  ======================================== */
+  .directory-grid {
+    grid-template-columns: 1fr; /* Forces 1 single column */
+    gap: 30px;
+  }
+  
+  .directory-container {
+    padding: 0 20px; /* Gives the text a little breathing room on the edges */
+  }
+}
